@@ -18,8 +18,8 @@ pipeline {
 
                 // Kopieer naar agent via scp
                 sh '''
-                scp -r ./ bloguser@web-01:/var/www/html/
-                scp -r ./ bloguser@web-02:/var/www/html/
+                scp -r ./ ansible@192.168.6.10:/var/www/html/
+                scp -r ./ ansible@192.168.6.27:/var/www/html/
                 '''
             }
         }
