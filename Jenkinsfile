@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'git@github.com:liquid-design/blog.git',
+                    url: 'git@github.com:liquid-design/blog.git'
                   //  credentialsId: 'jenkins-ssh-key'
             }
         }
