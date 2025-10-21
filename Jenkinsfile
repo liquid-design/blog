@@ -12,14 +12,11 @@ pipeline {
         }
 
         stage('Deploy') {
-            agent any  // of een specifieke agent voor deploy
+            agent { label 'web-01' }  // draait op de agent
             steps {
-                echo 'Deploying to web servers...'
-
-                // Kopieer naar agent via scp
                 sh '''
-                scp -r ./ ansible@192.168.6.10:/var/www/html/
-                scp -r ./ ansible@192.168.6.27:/var/www/html/
+                    sudo rm -rf /var/www/html/*
+                    sudo cp -r $WORKSPACE/* /var/www/html/
                 '''
             }
         }
